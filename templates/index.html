@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Генератор паролей</title>
+</head>
+<body>
+  <h1>Генератор паролей</h1>
+  <form method="post">
+    <label><input type="checkbox" name="lowercase"> Строчные буквы</label><br>
+    <label><input type="checkbox" name="uppercase"> Заглавные буквы</label><br>
+    <label><input type="checkbox" name="digits"> Цифры</label><br>
+    <label><input type="checkbox" name="symbols"> Спец. символы</label><br>
+    <label><input type="checkbox" name="exclude"> Исключить символы: il1Lo0O</label><br><br>
+
+    <label>Количество паролей: <input type="number" name="count" value="5" min="1"></label><br>
+    <label>Длина пароля: <input type="number" name="length" value="12" min="1"></label><br><br>
+
+    <button type="submit">Сгенерировать</button>
+  </form>
+
+  {% if passwords %}
+    <h2>Сгенерированные пароли:</h2>
+    <ul>
+      {% for p in passwords %}
+        <li><code>{{ p }}</code></li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+</body>
+</html>
